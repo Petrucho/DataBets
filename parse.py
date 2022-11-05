@@ -2,10 +2,21 @@ import requests
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 
-URL_TEMPLATE = "https://www.work.ua/ru/jobs-odesa/?page=2"
-FILE_NAME = "test.csv"
 
 
+# ФУТБОЛ РОССИЯ. ПРЕМЬЕР-ЛИГА
+URL_TEMPLATE = "https://www.fon.bet/sports/football/11935/"
+
+headers = {
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'        
+      }
+r = requests.get(URL_TEMPLATE, headers = headers)
+print(r.status_code)
+print(r.text)
+
+# FILE_NAME = "test.csv"
+
+"""
 def parse(url = URL_TEMPLATE):
     result_list = {'href': [], 'title': [], 'about': []}
     r = requests.get(url)
@@ -22,3 +33,4 @@ def parse(url = URL_TEMPLATE):
 
 df = pd.DataFrame(data=parse())
 df.to_csv(FILE_NAME)
+"""
