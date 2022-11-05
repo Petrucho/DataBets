@@ -2,14 +2,31 @@ import requests
 from bs4 import BeautifulSoup as bs
 import pandas as pd
 
+from fake_useragent import UserAgent
 
+ua = UserAgent(verify_ssl=False)
+user_agent = ua.random
+
+print(f"\nUSER AGENT:\n{user_agent}\n")
+print(f"\ntype(user_agent):\n{type(user_agent)}\n")
 
 # ФУТБОЛ РОССИЯ. ПРЕМЬЕР-ЛИГА
 URL_TEMPLATE = "https://www.fon.bet/sports/football/11935/"
 
+# headers = {
+#         'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'        
+#       }
+
 headers = {
-        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'        
-      }
+    'User-agent':
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19582'
+}
+
+# headers = {
+#     user_agent
+# }
+
+
 r = requests.get(URL_TEMPLATE, headers = headers)
 print(r.status_code)
 print(r.text)
