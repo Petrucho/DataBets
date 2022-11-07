@@ -54,29 +54,30 @@ driver.implicitly_wait(10) # in seconds
 # ФУТБОЛ РОССИЯ. ПРЕМЬЕР-ЛИГА
 driver.get("https://www.fon.bet/sports/football/11935/")
 
+# ЧМ 2022
+# driver.get("https://www.fon.bet/football-2022/")
+
+
 # wait until page will downloaded in browser
 time.sleep(20)
 
 # driver.get("https://www.ya.ru")
 try:    
-    # page_source = driver.page_source
-    # print(page_source)
+    page_source = driver.page_source
+    print(page_source)
 
     # save screenshot of the page
-    driver.save_screenshot('try_screenshot.png')
+    driver.save_screenshot('world_cup_2022.png')
 
+    """
     xp_events_name = '//a[@class="table-component-text--5BmeJ sport-event__name--HefZL _clickable--G5cwQ _event-view--7J8rE _compact--7BwYe"]'
     xp_events_date = '//span[@class="event-block-planned-time__time--16Vaw _small--7aWII"]'
     xp_events_value = '//div[@class="table-component-factor-value_single--6nfox _compact--7j5yE"]'
     
-
     events_name = driver.find_elements(By.XPATH, xp_events_name)
     events_date = driver.find_elements(By.XPATH, xp_events_date)
     events_value = driver.find_elements(By.XPATH, xp_events_value)
-    # events_name = driver.find_elements(By.PARTIAL_LINK_TEXT, xp_events_name)
-    # events_name = driver.find_elements(By.PARTIAL_LINK_TEXT, xp_events)
-    # events_name = driver.find_elements_by_partial_link_text("sport-event__name") # doesn't work
-    # print(f'\nevents_name: {events_name}\n')
+    
     events_name_list = [value.text for value in events_name]
     events_date_list = [value.text for value in events_date]
     events_value_list = [value.text for value in events_value]
@@ -84,6 +85,7 @@ try:
     print(f'\nevents_name_list: {events_name_list}\n')
     print(f'\nevents_date_list: {events_date_list}\n')
     print(f'\nevents_value_list: {events_value_list}\n')
+    """
     
 except:
     print("some error happen !!")
